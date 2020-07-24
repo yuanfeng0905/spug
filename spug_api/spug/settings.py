@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.app',
     'apps.deploy',
     'apps.notify',
+    'apps.call',
 ]
 
 MIDDLEWARE = [
@@ -64,10 +65,21 @@ ASGI_APPLICATION = 'spug.routing.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ATOMIC_REQUESTS': True,
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # },
+    # 支持mysql需要安装MySQLdb ==> mysqlclient
     'default': {
         'ATOMIC_REQUESTS': True,
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'spug',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'CHARSET': 'utf8mb4' # 支持中文
     }
 }
 

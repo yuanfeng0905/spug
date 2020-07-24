@@ -20,7 +20,6 @@ class Environment(models.Model, ModelMixin):
         db_table = 'environments'
         ordering = ('-id',)
 
-
 class Service(models.Model, ModelMixin):
     name = models.CharField(max_length=50)
     key = models.CharField(max_length=50, unique=True)
